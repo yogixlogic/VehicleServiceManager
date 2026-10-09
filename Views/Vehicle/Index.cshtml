@@ -1,0 +1,37 @@
+@model List<VehicleServiceManager.Models.Vehicle>
+
+<h1>Vehicles</h1>
+
+<a asp-action="Create" class="btn btn-primary">Add Vehicle</a>
+
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Registration Number</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Customer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.RegistrationNumber</td>
+                <td>@vehicle.Make</td>
+                <td>@vehicle.Model</td>
+                <td>@vehicle.Year</td>
+                <td>@vehicle.Customer?.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@vehicle.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@vehicle.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

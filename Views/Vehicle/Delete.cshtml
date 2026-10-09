@@ -1,0 +1,25 @@
+@model VehicleServiceManager.Models.Vehicle
+
+<h1>Delete Vehicle</h1>
+
+<p>Are you sure you want to delete this vehicle?</p>
+
+<dl class="row">
+    <dt class="col-sm-3">Registration Number</dt>
+    <dd class="col-sm-9">@Model.RegistrationNumber</dd>
+
+    <dt class="col-sm-3">Make and Model</dt>
+    <dd class="col-sm-9">@Model.Make @Model.Model</dd>
+
+    <dt class="col-sm-3">Year</dt>
+    <dd class="col-sm-9">@Model.Year</dd>
+
+    <dt class="col-sm-3">Customer</dt>
+    <dd class="col-sm-9">@Model.Customer?.Name</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
